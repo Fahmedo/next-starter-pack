@@ -1,0 +1,11 @@
+{
+  "name": "next-starter-pack",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-shared.mjs",
+    "format": "node scripts/format.mjs",
+    "check": "node scripts/check-templates.mjs",
+    "test:cli": "node scripts/test-cli.mjs"
+  }
+}
