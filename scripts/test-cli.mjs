@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import assert from "node:assert/strict";
 
-const cli = join(import.meta.dirname, "..", "packages", "create-next-starter-pack", "bin", "index.js");
+const cli = join(import.meta.dirname, "..", "packages", "create-nsp-app-kit", "bin", "index.js");
 const tmp = mkdtempSync(join(tmpdir(), "cnsp-"));
 
 try {
@@ -17,7 +17,7 @@ try {
     assert.ok(existsSync(join(dir, ".gitignore")), "gitignore");
     assert.ok(!existsSync(join(dir, "template.json")), "template.json leaked");
     assert.match(readFileSync(join(dir, ".env.local"), "utf8"), /"Acme Portal"/);
-    assert.ok(!JSON.stringify(pkg).includes("create-next-starter-pack"), "runtime dependency on CLI");
+    assert.ok(!JSON.stringify(pkg).includes("create-nsp-app-kit"), "runtime dependency on CLI");
     console.log(`ok  ${template}`);
   }
 } finally {

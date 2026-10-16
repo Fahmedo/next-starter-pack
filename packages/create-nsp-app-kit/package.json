@@ -1,0 +1,32 @@
+{
+  "name": "create-nsp-app-kit",
+  "version": "0.1.0",
+  "description": "Scaffold a production-ready Next.js app from a Dashboard, Web, or Blank starter template.",
+  "type": "module",
+  "bin": {
+    "create-nsp-app-kit": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "prepack": "node scripts/copy-templates.mjs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "nextjs",
+    "starter",
+    "template",
+    "scaffold",
+    "cli",
+    "dashboard",
+    "tailwindcss",
+    "typescript",
+    "create-next-app"
+  ]
+}

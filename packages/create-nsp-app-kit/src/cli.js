@@ -6,7 +6,7 @@ import { generate } from "./generate.js";
 
 export const TEMPLATES = ["dashboard", "web", "blank"];
 
-const HELP = `Usage: create-next-starter-pack [project-name] [options]
+const HELP = `Usage: create-nsp-app-kit [project-name] [options]
 
 Options:
   -t, --template <name>            ${TEMPLATES.join(" | ")}

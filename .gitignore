@@ -2,5 +2,5 @@ node_modules
 .next
 .env.local
 .DS_Store
-packages/create-next-starter-pack/templates
+packages/create-nsp-app-kit/templates
 *.tgz
