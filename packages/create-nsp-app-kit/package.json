@@ -1,6 +1,6 @@
 {
   "name": "create-nsp-app-kit",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Scaffold a production-ready Next.js app from a Dashboard, Web, or Blank starter template.",
   "type": "module",
   "bin": {
@@ -20,13 +20,23 @@
   "license": "MIT",
   "keywords": [
     "nextjs",
+    "next.js",
     "starter",
+    "starter-kit",
     "template",
+    "boilerplate",
     "scaffold",
     "cli",
+    "create-app",
     "dashboard",
+    "admin-dashboard",
     "tailwindcss",
     "typescript",
+    "shadcn",
+    "react-query",
+    "zustand",
+    "zod",
+    "app-router",
     "create-next-app"
   ]
 }

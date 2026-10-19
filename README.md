@@ -1,12 +1,26 @@
 # next-starter-pack
 
-Monorepo for `create-nsp-app-kit`, a CLI that scaffolds a standalone Next.js app (App Router, TypeScript, Tailwind v4, shadcn-style UI) from one of three templates: **dashboard**, **web**, **blank**.
+Monorepo for **create-nsp-app-kit**, a CLI that scaffolds a standalone Next.js app (App Router, TypeScript, Tailwind v4, shadcn-style UI) from one of three templates: **dashboard**, **web**, **blank**.
+
+## Install / use
+
+```bash
+npx create-nsp-app-kit@latest my-app
+npx create-nsp-app-kit@latest my-app -t dashboard --app-prefered-name "Acme Portal"
+cd my-app && npm install && npm run dev
+```
+
+Options: `-t, --template <dashboard|web|blank>`, `--app-prefered-name <name>`, `-h, --help`. Missing values are prompted for. Requires Node.js 18.18+.
+
+**Keywords:** nextjs, starter, starter-kit, template, boilerplate, scaffold, cli, dashboard, admin-dashboard, tailwindcss, typescript, shadcn, react-query, zustand, zod, app-router
+
+## Repository layout
 
 ```
 shared/                         Source of truth for everything common to all templates
 templates/{dashboard,web,blank} Independently runnable apps (shared files are synced in)
-packages/create-nsp-app-kit  The CLI (no runtime dependencies)
-scripts/                        sync, check and CLI test scripts
+packages/create-nsp-app-kit     The CLI (no runtime dependencies)
+scripts/                        sync, format, check and CLI test scripts
 ```
 
 ## Template architecture (identical in all three)
@@ -56,16 +70,23 @@ cd templates/dashboard && npm install && npm run dev   # run one template
 ## CLI
 
 ```bash
+# Local development (run the CLI from this repo)
 node packages/create-nsp-app-kit/bin/index.js my-app                 # interactive
 node packages/create-nsp-app-kit/bin/index.js my-app -t web --app-prefered-name "Acme Site"
 ```
-
-Future usage once published: `npx create-nsp-app-kit@latest`.
 
 - `project-name` becomes the directory and `package.json` name.
 - `--app-prefered-name` is the display name; it is written to `.env.local` as `NEXT_PUBLIC_APP_NAME` and used by `siteConfig`. Defaults to a title-cased project name.
 - Generated apps are plain copies of a template and do not depend on the CLI.
 
-### Publishing (not done yet)
+### Publishing
 
-`prepack` bundles `templates/` into the package (`.gitignore` is shipped as `_gitignore` and restored on generation). Preview with `cd packages/create-nsp-app-kit && npm pack --dry-run`. Run `npm run sync` first so templates are current.
+Published as `create-nsp-app-kit` on npm. `prepack` bundles `templates/` into the package (`.gitignore` is shipped as `_gitignore` and restored on generation). To release an update:
+
+```bash
+npm run sync && npm run check && npm run test:cli
+cd packages/create-nsp-app-kit
+npm version patch            # or minor / major
+npm pack --dry-run           # preview contents
+npm publish --access public  # requires npm 2FA
+```
